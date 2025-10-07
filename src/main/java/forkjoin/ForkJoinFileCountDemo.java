@@ -40,10 +40,11 @@ public class ForkJoinFileCountDemo {
     }
 
     public static void main(String[] args) {
-        Path root = Paths.get("src/main/java/aiagent");
+        Path root = Paths.get("src/main");
         ForkJoinPool pool = new ForkJoinPool();
         int total = pool.invoke(new FileCountTask(root));
         System.out.println("Total files: " + total);
+        pool.shutdown();
     }
 }
 
